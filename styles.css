@@ -1,0 +1,57 @@
+/* Resetting default margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000; /* Black background initially */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+#title {
+    color: #fff; /* White text color */
+    font-size: calc(5vh); /* Make the title 10% of the viewport height */
+    margin-bottom: 10px; /* Space between title and image */
+    transition: opacity 0.2s ease; /* Smooth transition for opacity change */
+}
+
+img {
+    width: calc(60vw); /* Makes the image 40% smaller than the viewport width */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 100%; /* Ensures the image does not exceed its container */
+    border: 2px solid #ccc; /* Optional: for better visibility */
+    filter: grayscale(100%) saturate(100%); /* Makes the image black and white with default saturation */
+    transition: filter 0.3s ease; /* Smooth transition for the filter change */
+}
+
+img.hover-effect {
+    filter: none; /* Remove the filter on hover */
+}
+
+body.hover-background {
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff, #ff007f);
+    background-size: 400% 400%;
+    animation: rainbow 10s ease infinite; /* Rainbow animation */
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+#title.hidden {
+    opacity: 0; /* Hide the title when hovered */
+}
+
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Allows clicks to pass through the canvas */
+    display: none; /* Hide initially */
+}
